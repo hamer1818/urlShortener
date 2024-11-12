@@ -1,4 +1,7 @@
 # URL Shortener
+[TR](#Türkçe) | [EN](#English)
+
+## English
 A simple URL shortener service built with FastAPI and SQLite3.
 
 ## Features
@@ -66,3 +69,72 @@ curl -X POST "http://127.0.0.1:8000/shorten/" \
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Türkçe
+FastAPI ve SQLite3 ile oluşturulmuş basit bir URL kısaltma servisi.
+
+## Özellikler
+- Uzun URL'leri kısa, paylaşılabilir bağlantılara dönüştürme
+- SQLite3 veritabanı kullanarak kalıcı depolama
+- Swagger belgeleri ile RESTful API
+- Basit web arayüzü
+
+## Gereksinimler
+- Python 3.7+
+- pip (Python paket yöneticisi)
+
+## Kurulum
+1. Depoyu klonlayın
+```bash
+git clone https://github.com/hamer1818/urlShortener.git
+cd urlShortener
+```
+2. Gerekli paketleri yükleyin
+```bash
+pip install -r requirements.txt
+```
+3. FastAPI sunucusunu çalıştırın
+```bash
+uvicorn main:app --reload
+```
+Sunucu `http://127.0.0.1:8000` adresinde başlayacaktır.
+
+## Kullanım
+### Web Arayüzü
+1. Tarayıcınızı açın ve `http://127.0.0.1:8000` adresine gidin.
+2. Uzun bir URL'yi giriş alanına girin ve `Kısalt` düğmesine tıklayın.
+3. Kısaltılmış URL'yi kopyalayın ve başkalarıyla paylaşın.
+
+### RESTful API
+#### Bir URL'yi Kısaltma
+```bash
+curl -X POST "http://127.0.0.1:8000/shorten/" \
+     -H "Content-Type: application/json" \
+     -d '{"original_url":"https://your-long-url.com"}'
+```
+### Swagger UI Kullanımı
+1. Swagger UI'ye erişmek için `http://127.0.0.1:8000/docs` adresine gidin.
+2. `/shorten` uç noktasına tıklayın ve ardından `Try it out` düğmesine tıklayın.
+3. `original_url` alanına uzun URL'yi girin ve `Execute` düğmesine tıklayın.
+4. Kısaltılmış URL, `Response body` bölümünde görüntülenecektir.
+
+## Proje Yapısı
+```bash
+├── main.py         # FastAPI uygulaması ve rotaları
+├── crud.py        # Veritabanı işlemleri
+├── database.py    # Veritabanı yapılandırması
+├── models.py      # SQLAlchemy modelleri
+├── static/        # Statik dosyalar
+└── requirements.txt
+```
+
+## Teknolojiler
+- [FastAPI](https://fastapi.tiangolo.com/): Python 3.7+ ile API'ler oluşturmak için modern web çatısı
+- [SQLite3](https://www.sqlite.org/index.html): Sunucusuz SQL veritabanı motoru
+- [Tailwind CSS](https://tailwindcss.com/): İşlevsel ilk CSS çerçevesi
+- [Pydantic](https://pydantic-docs.helpmanual.io/): Veri doğrulama ve ayrıştırma kütüphanesi
+- [SQLAlchemy](https://www.sqlalchemy.org/): SQL araç seti ve Nesne-İlişkisel Eşleme (ORM) kütüphanesi
+- [Uvicorn](https://www.uvicorn.org/): ASGI sunucusu uygulaması
+
+## Lisans
+Bu proje, ayrıntılar için [LICENSE](LICENSE) dosyasına bakın, MIT Lisansı ile lisanslanmıştır.
